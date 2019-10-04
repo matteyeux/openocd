@@ -1866,7 +1866,7 @@ COMMAND_HANDLER(dap_apreg_command)
 	struct adiv5_dap *dap = adiv5_get_dap(CMD_DATA);
 	uint32_t apsel, reg, value;
 	struct adiv5_ap *ap;
-	int retval;
+	int retval = 0;
 
 	if (CMD_ARGC < 2 || CMD_ARGC > 3)
 		return ERROR_COMMAND_SYNTAX_ERROR;
@@ -1914,6 +1914,7 @@ COMMAND_HANDLER(dap_apreg_command)
 				retval = mem_ap_setup_tar(ap, tar);
 				break;
 			}
+			break;
 			/* otherwise fall through */
 		default:
 			retval = dap_queue_ap_write(ap, reg, value);
