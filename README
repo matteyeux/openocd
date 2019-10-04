@@ -27,6 +27,14 @@ This README file contains an overview of the following topics:
 
 
 ============================
+Build for Bonobo
+============================
+
+./bootstrap
+./configure --enable-bonobo
+make -j $(nproc)
+
+============================
 Quickstart for the impatient
 ============================
 
